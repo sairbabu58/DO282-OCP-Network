@@ -138,7 +138,7 @@ $ oc get po -n openshift-ovn-kubernetes
 
 -> Performs RBAC authentication against the Kubernetes API.
 
-###kube-rbac-proxy-ovn-metrics	
+### kube-rbac-proxy-ovn-metrics	
 
 -> OVN-Kubernetes component.
 
