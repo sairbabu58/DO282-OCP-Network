@@ -61,3 +61,22 @@ Distributed gateway port
 A distributed gateway port is a special logical router port. It handles centralized north-south functions such as NAT and load balancing (LB) on a designated chassis.
 
 Additional constructs include access control lists (ACLs), load balancers, and DHCP options.
+
+
+### Integrating OVN
+
+OVN-Kubernetes creates the following cluster topology features:
+
+OVN-Kubernetes creates one central distributed cluster router named ovn_cluster_router.
+
+OVN-Kubernetes creates per-node logical switches with individual subnets for local pods.
+
+Pod interfaces connect to the per-node logical switches via LSPs and veth pairs.
+
+A join switch connects the per-node logical switches to the central cluster router.
+
+Distributed gateway ports on the cluster router handle egress NAT and ingress load balancing.
+
+Kubernetes services map to OVN load balancers.
+
+Kubernetes network policies map to OVN ACLs.
