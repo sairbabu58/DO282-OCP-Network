@@ -90,5 +90,15 @@ $ oc get node master01 -o yaml | grep node-subnets
 ```
 
 ```
+$ oc get pods -n openshift-ovn-kubernetes
+NAME                                            READY   STATUS    RESTARTS   AGE
+ovnkube-control-plane-5f7585...                 2/2     Running   6          2d3h
+ovnkube-control-plane-5f7585...                 2/2     Running   6          2d3h
+ovnkube-node-mdj5j                              8/8     Running   90         80d
+ovnkube-node-pqxqw                              8/8     Running   92         80d
+ovnkube-node-zj56j  
+```
+
+```
 $ oc get pods -n openshift-multus -o wide
 ```
