@@ -80,3 +80,66 @@ Distributed gateway ports on the cluster router handle egress NAT and ingress lo
 Kubernetes services map to OVN load balancers.
 
 Kubernetes network policies map to OVN ACLs.
+
+
+### OVN-Kubernetes Components pods
+
+```
+$ oc get po -n openshift-ovn-kubernetes
+```
+
+#### ovnkube-controller
+	
+-> OVN-Kubernetes component.
+
+-> Performs IPAM to allocate the pod IP address from the pod subnet of each node.
+
+-> Allocates the pod IP address from the pod subnet of each node.
+
+-> Translates Kubernetes network configuration into OVN structures and stores them in the NBDB
+
+#### nbdb
+
+-> Native OVN component.
+
+-> Stores the logical elements that the ovnkube-controller container created.
+
+#### northd	
+
+-> Native OVN component.
+
+-> Converts the OVN logical elements from NBDB to OVN logical flows.
+
+-> Stores the converted OVN flows in the SBDB.
+
+#### sbdb	
+
+-> Native OVN component.
+
+-> Stores the logical flows that the northd container created.
+
+#### ovn-controller	
+
+-> Native OVN component.
+
+-> Converts the logical flows in SBDB to OpenFlow.
+
+-> Configures OVS to match the intended network state.
+
+#### ovn-acl-logging	
+
+-> Native OVN component.
+
+-> Rotates the OVN log files.
+
+#### kube-rbac-proxy-node	
+
+-> OVN-Kubernetes component.
+
+-> Performs RBAC authentication against the Kubernetes API.
+
+###kube-rbac-proxy-ovn-metrics	
+
+-> OVN-Kubernetes component.
+
+-> Metrics RBAC for the ovn-controller container.
