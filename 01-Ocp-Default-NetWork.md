@@ -12,3 +12,20 @@ CHECK
 The engine calls this operation to verify that the pod's networking is still configured correctly.```
 
 ```
+#### CNI Configurations on node side
+
+```
+$ oc debug no/name
+$vi  /etc/cni/net.d/
+
+
+{
+  "cniVersion": "1.0.0",
+  "name": "ovn-kubernetes", 1
+  "type": "ovn-k8s-cni-overlay", 2
+  "ipam": {
+    "type": "host-local", 3
+    "subnet": "10.128.0.0/14"
+  }
+}
+```
