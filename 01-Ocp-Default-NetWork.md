@@ -48,7 +48,7 @@ status:
   clusterNetwork: 4
   - cidr: 10.8.0.0/14
 ...output omitted..
-
+```
 ```
 user@host:~$ oc get network.operator.openshift.io cluster -o yaml
 apiVersion: operator.openshift.io/v1
