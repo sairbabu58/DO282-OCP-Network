@@ -32,7 +32,11 @@ $vi  /etc/cni/net.d/
 #### Network Configuration path
 
 ```
-user@host:~$ oc get network.config.openshift.io cluster -o yaml
+$ oc get clusteroperators network
+
+```
+```
+$ oc get network.config.openshift.io cluster -o yaml
 apiVersion: config.openshift.io/v1
 kind: Network
 ...output omitted...
@@ -50,7 +54,7 @@ status:
 ...output omitted..
 ```
 ```
-user@host:~$ oc get network.operator.openshift.io cluster -o yaml
+$ oc get network.operator.openshift.io cluster -o yaml
 apiVersion: operator.openshift.io/v1
 kind: Network
 metadata:
@@ -81,10 +85,10 @@ spec:
 ```
 
 ```
-user@host:~$ oc get node master01 -o yaml | grep node-subnets
+$ oc get node master01 -o yaml | grep node-subnets
     k8s.ovn.org/node-subnets: '{"default":["10.10.0.0/23"]}'
 ```
 
 ```
-user@host:~$ oc get pods -n openshift-multus -o wide
+$ oc get pods -n openshift-multus -o wide
 ```
