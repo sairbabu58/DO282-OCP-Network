@@ -168,3 +168,7 @@ or between a pod and a service. The external network traffic occurs for ingress 
 -> OVN-Kubernetes uses Geneve tunnels to encapsulate traffic between different cluster nodes.
 
 -> This internal traffic is secured by using Kubernetes network policies.
+
+
+### OVS external network bridge (br-ex)
+### OVS integration network bridge (br-int)
