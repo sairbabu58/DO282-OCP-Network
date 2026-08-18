@@ -138,8 +138,33 @@ $ oc get po -n openshift-ovn-kubernetes
 
 -> Performs RBAC authentication against the Kubernetes API.
 
-### kube-rbac-proxy-ovn-metrics	
+#### kube-rbac-proxy-ovn-metrics	
 
 -> OVN-Kubernetes component.
 
 -> Metrics RBAC for the ovn-controller container.
+
+
+### OVN-Kubernetes Traffic Types
+
+The OpenShift cluster has two kinds of network traffic, which depend on whether the traffic is internal or external to the cluster. For example, internal network traffic is the communication between two pods, 
+or between a pod and a service. The external network traffic occurs for ingress traffic from outside the cluster and for egress traffic when a pod connects to an outside resource.
+
+
+#### north-south network traffic (Also called vertical traffic)
+
+-> Corresponds to ingress and egress network traffic that goes outside the Kubernetes cluster.
+
+-> The external network bridge (br-ex) handles the traffic.
+
+-> The traffic uses the IP address of the node when communicating to outside networks.
+
+#### east-west network traffic (Also called horizontal traffic)
+
+-> Corresponds to network traffic that is handled within the Kubernetes cluster.
+
+-> The internal network bridge (br-int) handles the traffic.
+
+-> OVN-Kubernetes uses Geneve tunnels to encapsulate traffic between different cluster nodes.
+
+-> This internal traffic is secured by using Kubernetes network policies.
