@@ -30,3 +30,34 @@ Load balancing and Network Address Translation (NAT) are implemented through log
 OVN provides DHCP services for IP address assignment.
 
 OVN uses database-based configuration, such as the northbound database (NBDB) and southbound database (SBDB), for consistent state management.
+
+
+### OVN Logical Constructs
+
+OVN represents networking by using a set of logical objects that abstract the underlying physical infrastructure, to enable administrators to define network topology declaratively.
+
+OVN L2 logical objects
+OVN defines networking through the following layer 2 logical objects:
+
+Logical switch (LS)
+A logical switch is an L2 broadcast domain.
+
+Logical switch port (LSP)
+A logical switch port connects endpoints or routers to logical switches. Its type is set to router for router attachments.
+
+Localnet port
+A localnet port is a logical switch port that connects a logical switch to the physical network such as a VLAN or bridge.
+
+OVN L3 logical objects
+OVN defines networking through the following layer 3 logical objects:
+
+Logical router (LR)
+A logical router is an L3 routing device that provides distributed forwarding for east-west traffic.
+
+Logical router port (LRP)
+A logical router port connects logical routers to logical switches and carries IP addresses.
+
+Distributed gateway port
+A distributed gateway port is a special logical router port. It handles centralized north-south functions such as NAT and load balancing (LB) on a designated chassis.
+
+Additional constructs include access control lists (ACLs), load balancers, and DHCP options.
