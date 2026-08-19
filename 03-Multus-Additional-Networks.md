@@ -1,3 +1,12 @@
 ### Multus Additional Network
 
 complex applications and telecommunications workloads often require network isolation and traffic separation. You might need to separate sensitive data plane traffic from control plane traffic, or require high-performance, low-latency connections that bypass the overlay network. For many enterprise use cases, you must attach a pod to multiple networks to meet specific performance or security requirements. Enterprise customers often require dedicated network interfaces for traffic such as storage replication, database backups, or high-throughput data streaming. In each case, the traffic must remain isolated from the default cluster network.
+
+
+### RHOCP supports two primary methods for adding secondary networks:
+
+#### Network Attachment Definition
+The standard method for creating secondary network interfaces for specific pods.
+
+#### User-Defined Network
+A feature that primarily segments the primary network by using different default networks per namespace. UDNs can also serve as secondary networks. The next lesson covers UDNs in detail.
