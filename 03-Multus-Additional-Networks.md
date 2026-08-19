@@ -90,3 +90,22 @@ spec:
   - name: my-container
     image: my-image
 ```
+
+### Verification
+
+```
+$ oc exec -it sample-pod -- ip addr
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    ...output omitted...
+    inet 127.0.0.1/8 scope host lo
+    ...output omitted...
+2: eth0@if12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1400 qdisc noqueue state UP group default
+    ...output omitted...
+    inet 10.128.2.26/23 brd 10.128.3.255 scope global eth0
+    ...output omitted...
+3: net1@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    ...output omitted...
+    inet 192.168.100.5/24 brd 192.168.100.255 scope global net1
+    ...output omitted...
+```
