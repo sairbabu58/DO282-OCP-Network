@@ -1,3 +1,3 @@
-### Mulus Additional Network
+### Multus Additional Network
 
 complex applications and telecommunications workloads often require network isolation and traffic separation. You might need to separate sensitive data plane traffic from control plane traffic, or require high-performance, low-latency connections that bypass the overlay network. For many enterprise use cases, you must attach a pod to multiple networks to meet specific performance or security requirements. Enterprise customers often require dedicated network interfaces for traffic such as storage replication, database backups, or high-throughput data streaming. In each case, the traffic must remain isolated from the default cluster network.
